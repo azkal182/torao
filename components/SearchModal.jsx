@@ -14,7 +14,7 @@ export default function SearchModal() {
             // router.push(`/search/${event.target.value}`)
             // navigate(`/search/${event.target.value}`)
             setSearchValue('')
-            console.log('clicked')
+            // console.log('clicked')
         }
     }
 
