@@ -36,7 +36,7 @@ const Show = ({ params }) => {
         axios(
             `https://encouraging-bat-sun-hat.cyclic.app/api/anime/oploverz/download?id=${params.id}`
         ).then((res) => {
-            //console.log(res.data.results.embed);
+            // console.log(res.data.results)
             setDownload(res.data.results.download)
             setPrev(res.data.results.prev)
             setNext(res.data.results.next)
@@ -94,11 +94,10 @@ const Show = ({ params }) => {
                             refresh atau ganti resolusi
                         </h2>
                     </div>
-                    <div className='rounded aspect-[10/4] overflow-hidden mt-2 w-full max-w-5xl mx-auto bg-slate-700'>
-                        {' '}
+                    <div className='rounded  overflow-hidden mt-2 w-full max-w-5xl mx-auto bg-slate-700'>
                         <iframe
                             ref={iframeRef}
-                            className='w-full h-full'
+                            className='aspect-[10/6] lg:aspect-[10/4]'
                             src={
                                 selected
                                     ? `https://acefile.co/player/${stream}`
@@ -109,14 +108,14 @@ const Show = ({ params }) => {
                             height='100%'
                             allowFullScreen={true}
                         ></iframe>
-                        <div className='w-full flex items-center justify-between'>
+                        <div className='w-full flex items-center justify-between px-2 lg:px-4'>
                             <div className='p-2 bg-slate-700 z-100'>
                                 <Listbox
                                     value={selected}
                                     onChange={setSelected}
                                 >
                                     <div className='relative mt-1 w-32'>
-                                        <Listbox.Button className='relative w-full cursor-default rounded-lg bg-white py-1 md:py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm'>
+                                        <Listbox.Button className='relative w-full cursor-default rounded-lg text-slate-900 bg-white py-1 md:py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm'>
                                             <span className='block truncate'>
                                                 {selected.resolution}
                                             </span>
@@ -172,7 +171,7 @@ const Show = ({ params }) => {
                                                                         }
                                                                     </span>
                                                                     {selected ? (
-                                                                        <span className='absolute inset-y-0 right-0 flex items-center pr-3 text-amber-600'>
+                                                                        <span className='absolute inset-y-0 right-0 flex items-center pr-3 text-slate-900'>
                                                                             <HiCheck
                                                                                 className='h-5 w-5'
                                                                                 aria-hidden='true'
@@ -190,33 +189,34 @@ const Show = ({ params }) => {
                                 </Listbox>
                             </div>
 
-                            <div>
-                                <button
-                                    className='mt-4 text-white'
-                                    onClick={
-                                        requestFullScreenAndLandscape
-                                    }
-                                >
-                                    <span className=' mr-10'>
-                                        <svg
-                                            xmlns='http://www.w3.org/2000/svg'
-                                            fill='none'
-                                            viewBox='0 0 24 24'
-                                            strokeWidth={1.5}
-                                            stroke='currentColor'
-                                            className='w-6 h-6'
-                                        >
-                                            <path
-                                                strokeLinecap='round'
-                                                strokeLinejoin='round'
-                                                d='M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15'
-                                            />
-                                        </svg>
-                                    </span>
-                                </button>
-                            </div>
+                            {/* <div> */}
+                            <button
+                                className=' text-white text-center flex'
+                                onClick={
+                                    requestFullScreenAndLandscape
+                                }
+                            >
+                                <span className=''>
+                                    <svg
+                                        xmlns='http://www.w3.org/2000/svg'
+                                        fill='none'
+                                        viewBox='0 0 24 24'
+                                        strokeWidth={1.5}
+                                        stroke='currentColor'
+                                        className='w-6 h-6'
+                                    >
+                                        <path
+                                            strokeLinecap='round'
+                                            strokeLinejoin='round'
+                                            d='M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15'
+                                        />
+                                    </svg>
+                                </span>
+                            </button>
+                            {/* </div> */}
                         </div>
                     </div>
+
                     <div className='my-4 grid grid-cols-3 gap-x-1 w-full max-w-5xl md:mx-auto'>
                         <Link
                             href={`/show/${prev}`}
@@ -255,10 +255,7 @@ const Show = ({ params }) => {
                     </div>
                     <div className='p-2 md:p-4 mt-4 rounded shadow bg-slate-100 dark:bg-slate-700 w-full md:max-w-5xl md:mx-auto'>
                         <h2 className='text-slate-900 dark:text-slate-100 w-full text-center font-semibold'>
-                            Download{' '}
-                            {params.episode
-                                ? params.episode.replaceAll('-', ' ')
-                                : ''}
+                            Download {params.id.replaceAll('-', ' ')}
                         </h2>
 
                         <div className='flex flex-col gap-y-3 mt-3 text-white'>

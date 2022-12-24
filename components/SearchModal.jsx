@@ -1,11 +1,22 @@
 'use client'
 import { Dialog, Transition } from '@headlessui/react'
+import { useRouter } from 'next/router'
 import { Fragment, useState } from 'react'
 import { FiCommand } from 'react-icons/fi'
 import { HiOutlineSearch } from 'react-icons/hi'
 
 export default function SearchModal() {
     let [isOpen, setIsOpen] = useState(false)
+    const [searchValue, setSearchValue] = useState('')
+    // const router = useRouter()
+    const handleSearch = (event) => {
+        if (event.key === 'Enter') {
+            // router.push(`/search/${event.target.value}`)
+            // navigate(`/search/${event.target.value}`)
+            setSearchValue('')
+            console.log('clicked')
+        }
+    }
 
     function closeModal() {
         setIsOpen(false)
@@ -68,7 +79,7 @@ export default function SearchModal() {
                                 leaveFrom='opacity-100 scale-100'
                                 leaveTo='opacity-0 scale-95'
                             >
-                                <Dialog.Panel className='w-full border divide-y divide-slate-300 max-w-2xl transform overflow-hidden rounded-lg bg-white border-slate-400 text-left align-middle lg:mt-6 shadow-xl transition-all'>
+                                <Dialog.Panel className='w-full border dark:bg-slate-800 dark:border-slate-700 dark:divide-slate-700 divide-y  max-w-2xl transform overflow-hidden rounded-lg bg-white border-slate-400 text-left align-middle lg:mt-6 shadow-xl transition-all'>
                                     <div className='flex items-center px-4'>
                                         <svg
                                             xmlns='http://www.w3.org/2000/svg'
@@ -103,7 +114,13 @@ export default function SearchModal() {
                                         <input
                                             className='px-2 w-full border-0 bg-transparent dark:text-slate-100 focus:outline-none focus:ring-0 text-sm placeholder-slate-400 text-slate-600 h-12'
                                             placeholder='Pencarian cepat...'
-                                            id='headlessui-combobox-input-:r6:'
+                                            value={searchValue}
+                                            onKeyDown={handleSearch}
+                                            onChange={(event) => {
+                                                setSearchValue(
+                                                    event.target.value
+                                                )
+                                            }}
                                             type='text'
                                             ariaExpanded='false'
                                             tabindex='0'

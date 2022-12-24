@@ -7,7 +7,7 @@ async function page() {
     const latest = await getLatest()
     const popular = await getPopular()
     // console.log(latest)
-    console.log(popular)
+    // console.log(popular)
     return (
         <>
             {/* <div className='mx-4 md:mx-6 lg:mx-auto lg:w-full max-w-5xl '>

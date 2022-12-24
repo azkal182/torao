@@ -4,6 +4,7 @@ import ToggleTheme from './ToogleThemes'
 import Image from 'next/image'
 import logo from '../public/logo.png'
 import SearchModal from './SearchModal'
+import Link from 'next/link'
 export default function Navbar() {
     return (
         <>
@@ -11,9 +12,9 @@ export default function Navbar() {
                 <div className='px-4 w-full mx-auto flex items-center justify-between'>
                     <div className='flex items-center gap-x-8 text-slate-600 dark:text-slate-300'>
                         <div className='leading-5'>
-                            <a
+                            <Link
                                 className='italic font-bold gap-x-2 text-xl lg:text-2xl text-black dark:text-white flex items-center'
-                                href='#'
+                                href='/'
                             >
                                 <Image
                                     src={logo}
@@ -24,7 +25,7 @@ export default function Navbar() {
                                     // placeholder="blur" // Optional blur-up while loading
                                 />
                                 ToraO
-                            </a>
+                            </Link>
                         </div>
                         {/* <div className='hidden lg:flex items-center justify-between gap-x-8'>
                             <div className='text-slate-900 dark:text-white'>

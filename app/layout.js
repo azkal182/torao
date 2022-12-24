@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
     return (
         <html>
             <body
-                className={`${inter.className} bg-gradient-to-t from-slate-300 to-slate-50 dark:bg-gradient-to-t dark:from-slate-900 dark:to-slate-700 bg-fixed`}
+                className={`${inter.className} scrollbar-thin dark:scrollbar-thumb-slate-400 dark:scrollbar-track-slate-600 scrollbar-thumb-slate-600 scrollbar-track-slate-400 bg-gradient-to-t from-slate-300 to-slate-50 dark:bg-gradient-to-t dark:from-slate-900 dark:to-slate-700 bg-fixed`}
             >
                 <Providers>
                     <Navbar />
