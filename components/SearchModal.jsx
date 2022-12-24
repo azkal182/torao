@@ -1,20 +1,21 @@
 'use client'
 import { Dialog, Transition } from '@headlessui/react'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
+
 import { Fragment, useState } from 'react'
 import { FiCommand } from 'react-icons/fi'
 import { HiOutlineSearch } from 'react-icons/hi'
 
 export default function SearchModal() {
+    const router = useRouter()
     let [isOpen, setIsOpen] = useState(false)
     const [searchValue, setSearchValue] = useState('')
-    // const router = useRouter()
+
     const handleSearch = (event) => {
         if (event.key === 'Enter') {
-            // router.push(`/search/${event.target.value}`)
-            // navigate(`/search/${event.target.value}`)
+            closeModal()
+            router.push(`/search?q=${event.target.value}`)
             setSearchValue('')
-            // console.log('clicked')
         }
     }
 
@@ -30,7 +31,7 @@ export default function SearchModal() {
         <>
             <button
                 onClick={openModal}
-                className='lg:hidden px-3 py-2 dark:bg-slate-700/90 bg-white border border-slate-400 dark:border-slate-500 rounded-md hover:bg-slate-100 dark:hover:bg-slate-600'
+                className='lg:hidden focus:outline-none px-3 py-2 dark:bg-slate-700/90 bg-white border border-slate-400 dark:border-slate-500 rounded-md hover:bg-slate-100 dark:hover:bg-slate-600'
             >
                 <HiOutlineSearch size={20} />
             </button>
@@ -38,7 +39,7 @@ export default function SearchModal() {
                 <button
                     type='button'
                     onClick={openModal}
-                    className='px-2 py-2 hover:bg-slate-100 dark:bg-slate-700/90 dark:hover:bg-slate-600 border border-slate-400 dark:border-slate-500 text-sm rounded-md dark:text-slate-400 flex items-center gap-x-2'
+                    className='px-2 py-2 focus:outline-none hover:bg-slate-100 dark:bg-slate-700/90 dark:hover:bg-slate-600 border border-slate-400 dark:border-slate-500 text-sm rounded-md dark:text-slate-400 flex items-center gap-x-2'
                 >
                     <span>
                         <HiOutlineSearch size={18} />
