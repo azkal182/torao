@@ -4,13 +4,16 @@ import React from 'react'
 
 async function Search({ params, searchParams }) {
     const data = await getData(searchParams.q)
-    // console.log(data)
+    // console.log(searchParams)
     return (
         <>
             <div className='w-full max-w-5xl md:mx-auto'>
                 <div className='px-4 py-4 grid grid-cols-1 relative gap-y-4'>
                     <h2 className='font-semibold text-lg text-slate-900 dark:text-slate-100'>
-                        Search for {` '${searchParams.q}'`}
+                        Search for{' '}
+                        {` '${JSON.stringify(
+                            searchParams
+                        )} ${JSON.stringify(params)}'`}
                     </h2>
                     {data.results.map((data, i) => {
                         return (
