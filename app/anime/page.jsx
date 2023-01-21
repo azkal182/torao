@@ -1,7 +1,7 @@
 import React from 'react'
 
-function Search({ params }) {
-    console.log(params)
+function Search() {
+    
     return <div>you find </div>
 }
 

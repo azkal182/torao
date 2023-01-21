@@ -192,7 +192,7 @@ const Show = ({ params }) => {
      </div>
 
      <div className="my-4 grid grid-cols-3 gap-x-1 w-full max-w-5xl md:mx-auto">
-      <Link href={`/show/${prev}`} className={!prev && "disable-link"}>
+      <Link href={`/${prev}`} className={!prev && "disable-link"}>
        <button
         onClick={() => {
          setIsLoading(true);
@@ -209,7 +209,7 @@ const Show = ({ params }) => {
        </button>
       </Link>
 
-      <Link href={`/show/${next}`} className={!next && "disable-link"}>
+      <Link href={`/${next}`} className={!next && "disable-link"}>
        <button
         onClick={() => {
          setIsLoading(true);
