@@ -33,7 +33,7 @@ const [data, setData] = useState([]);
   const handleSearch = (event) => {
     if (event.key === "Enter") {
       closeModal();
-      router.push(`/search?q=${event.target.value}`);
+      router.push(`/search?q=${event.target.value}`, { shallow: true });
       setQuery("");
     }
   };
@@ -106,7 +106,7 @@ const [data, setData] = useState([]);
       <Combobox
        onChange={(value) => {
         setIsOpen(false);
-        router.push(`/anime/${value}`);
+        router.push(`/anime/${value}`, { shallow: true });
         // router.push(`/search/${value}`);
        }}
        as="div"

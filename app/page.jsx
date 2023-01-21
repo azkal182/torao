@@ -111,7 +111,7 @@ async function page() {
           </h2>
           {latest.results.map((latest, i) => {
             return (
-              <Link key={i} href={`/${latest.id}`}>
+              <Link key={i} href={`/${latest.id}`} shallow>
                 <div className="flex items-start justify-start p-2 bg-gradient-to-t from-bg-slate-300 to-slate-50 dark:bg-gradient-to-t dark:from-slate-900 dark:to-slate-800 rounded-md border border-slate-50 dark:border dark:border-slate-900 relative">
                   <div className="w-28 shirk-0 relative">
                     <div className="aspect-w-3 aspect-h-5 rounded overflow-hidden">

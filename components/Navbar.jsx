@@ -15,7 +15,7 @@ export default function Navbar() {
                             <Link
                                 className='italic font-bold gap-x-2 text-xl lg:text-2xl text-black dark:text-white flex items-center'
                                 href='/'
-                            >
+                           shallow >
                                 <Image
                                     src={logo}
                                     alt='Logo'

@@ -192,7 +192,7 @@ const Show = ({ params }) => {
      </div>
 
      <div className="my-4 grid grid-cols-3 gap-x-1 w-full max-w-5xl md:mx-auto">
-      <Link href={`/${prev}`} className={!prev && "disable-link"}>
+      <Link href={`/${prev}`} className={!prev && "disable-link"} shallow>
        <button
         onClick={() => {
          setIsLoading(true);
@@ -203,13 +203,13 @@ const Show = ({ params }) => {
         <HiChevronLeft size={16} />
        </button>
       </Link>
-      <Link href={`/anime/${animeId}`}>
+      <Link href={`/anime/${animeId}`} shallow>
        <button className="bg-blue-600 text-white py-2 flex justify-center items-center text-center w-full">
         <HiListBullet size={16} />
        </button>
       </Link>
 
-      <Link href={`/${next}`} className={!next && "disable-link"}>
+      <Link href={`/${next}`} className={!next && "disable-link"} shallow>
        <button
         onClick={() => {
          setIsLoading(true);

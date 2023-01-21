@@ -46,11 +46,11 @@ async function page({ params, searchParams }) {
         </div>
 
         <div className="mt-4 grid grid-cols-2 gap-2 text-slate-100">
-          <Link href={`/${data.results.list_episode.slice(-1)[0].id}`} className="bg-blue-600 rounded-md py-2 text-center">
+          <Link href={`/${data.results.list_episode.slice(-1)[0].id}`} shallow className="bg-blue-600 rounded-md py-2 text-center">
             <span className="block">first episode</span>
             <span className="text-lg font-bold">Episode {data.results.list_episode.slice(-1)[0].episode}</span>
           </Link>
-          <Link href={data.results.list_episode[0].id} className="bg-blue-600 rounded-md py-2 text-center">
+          <Link href={data.results.list_episode[0].id} shallow className="bg-blue-600 rounded-md py-2 text-center">
           <span className="block">New episode</span>
             <span className="text-lg font-bold">Episode {data.results.list_episode[0].episode}</span>
           
@@ -74,7 +74,7 @@ async function page({ params, searchParams }) {
                 <tr key={i}>
                   <td className="text-center">{item.episode}</td>
                   <td className="p-2">
-                  <Link href={item.id}>
+                  <Link href={item.id} shallow>
                   {item.title.replace("Subtitle Indonesia", "")}
                   </Link>
                   
